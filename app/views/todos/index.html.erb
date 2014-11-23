@@ -1,5 +1,13 @@
-<h1>Listing todos</h1>
 
+<%= link_to 'New Todo', new_todo_path, class: 'btn btn-success' %>
+<%= @filter %>
+
+<form action="/todos">
+  All <input <%= 'checked="checked"' if @filter == 'all' %> name="filter" value="all" type="radio" />
+  Not Finished <input <%= 'checked="checked"' if @filter == 'notFinished' %> name="filter" value="notFinished" type="radio"/>
+  Finished <input <%= 'checked="checked"' if @filter == 'finished' %> type="radio" name="filter" value="finished" />
+  <input type="submit" class="btn btn-success" value="Filter"/>
+</form>
 <div class="container">
   <div class="row">
     <div class="col-md-8">Title</div>
@@ -21,4 +29,4 @@
 
 <br>
 
-<%= link_to 'New Todo', new_todo_path %>
+

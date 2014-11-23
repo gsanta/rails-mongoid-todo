@@ -4,7 +4,28 @@ class TodosController < ApplicationController
   # GET /todos
   # GET /todos.json
   def index
-    @todos = Todo.all
+    
+       
+    if params[:filter] == nil || params[:filter] == 'all'
+      @filter = 'all'
+      @todos = Todo.all
+    elsif params[:filter] == 'finished'
+       @filter = params[:filter]
+       @todos = Todo.scoped
+       @todos = @todos.where(:done => true)
+    else
+       @filter = params[:filter]
+       @todos = Todo.scoped
+       @todos = @todos.where(:done => false)
+    end
+    #else 
+    #  @filter = params[:filter]
+      #@todos = Todo.scoped
+      #@todos = @todos.where(:done => false)
+    #end
+    
+    #@todos = Todo.all
+    #@filter = 'all'
   end
 
   # GET /todos/1
