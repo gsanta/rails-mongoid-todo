@@ -1,6 +1,11 @@
-<h1>Editing todo</h1>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @todo %> |
-<%= link_to 'Back', todos_path %>
+<div class="container">
+  <div class="form-container">
+    <%= render 'form' %>
+  </div>
+  
+  <div class="nav-container">
+    <%= link_to 'Show', @todo, class: 'btn btn-success' %> |
+    <%= link_to 'Back', todos_path, class: 'btn btn-default' %>
+  </div>
+</div>

@@ -12,18 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    <%= f.text_field :title, class: "form-control", placeholder: 'Title' %>
   </div>
-  <div class="field">
-    <%= f.label :important %><br>
+  
+  <div class="field input-group">
+    <%= f.label :important %>&nbsp;&nbsp;
     <%= f.check_box :important %>
   </div>
-  <div class="field">
-    <%= f.label :done %><br>
+  <div class="field input-group">
+    <%= f.label :done %>&nbsp;&nbsp;
     <%= f.check_box :done %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  <div class="actions btn btn-success">
+    <%= f.submit  %>
   </div>
 <% end %>
