@@ -15,11 +15,6 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-md-6">Title</div>
-    <div class="col-md-6">Actions</div>
-  </div>
-  
    <% @todos.each do |todo| %>
       <div class="row">
         <div class="col-md-6 <%= ' important' if todo.important == true %> <%= 'done' if todo.done %>"><%= todo.title %></div>

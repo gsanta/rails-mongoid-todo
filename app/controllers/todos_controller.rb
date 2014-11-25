@@ -8,15 +8,15 @@ class TodosController < ApplicationController
        
     if params[:filter] == nil || params[:filter] == 'all'
       @filter = 'all'
-      @todos = Todo.all
+      @todos = Todo.order('_id DESC')
     elsif params[:filter] == 'finished'
        @filter = params[:filter]
        @todos = Todo.scoped
-       @todos = @todos.where(:done => true)
+       @todos = @todos.where(:done => true).order('_id DESC')
     else
        @filter = params[:filter]
        @todos = Todo.scoped
-       @todos = @todos.where(:done => false)
+       @todos = @todos.where(:done => false).order('_id DESC')
     end
     #else 
     #  @filter = params[:filter]
@@ -49,7 +49,7 @@ class TodosController < ApplicationController
 
     respond_to do |format|
       if @todo.save
-        format.html { redirect_to @todo, notice: 'Todo was successfully created.' }
+        format.html { redirect_to action: "index", notice: 'Todo was successfully created.' }
         format.json { render :show, status: :created, location: @todo }
       else
         format.html { render :new }
@@ -63,7 +63,7 @@ class TodosController < ApplicationController
   def update
     respond_to do |format|
       if @todo.update(todo_params)
-        format.html { redirect_to @todo, notice: 'Todo was successfully updated.' }
+        format.html { redirect_to action: "index", notice: 'Todo was successfully updated.' }
         format.json { render :show, status: :ok, location: @todo }
       else
         format.html { render :edit }
