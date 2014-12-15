@@ -20,7 +20,6 @@
         <div class="col-md-6 <%= ' important' if todo.important == true %> <%= 'done' if todo.done %>"><%= todo.title %></div>
         
         <div class="col-md-6">
-          <%= link_to 'Show', todo, class: 'btn btn-default' %>
           <%= link_to 'Edit', edit_todo_path(todo), class: 'btn btn-success' %>
           <%= link_to 'Destroy', todo, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %>
          </div>

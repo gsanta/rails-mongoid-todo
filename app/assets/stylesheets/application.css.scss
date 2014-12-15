@@ -15,3 +15,34 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.important {
+  color: red;
+}
+
+.done {
+  text-decoration: line-through;
+}
+
+.container {
+  margin-top: 20px;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.container-small {
+  margin-top: 20px;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+
+.panel-container {
+  margin-bottom: 40px;
+}
+
+form {
+  display: inline;
+}
+
+.row {
+  margin-bottom: 10px;
+}
